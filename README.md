@@ -9,7 +9,7 @@ This work is intentionally lightweight and interpretable, focusing on **controll
 ---
 ![input](Data/Input/original.png)
 ____
-![output](DATA/output/20251216_125749_aug.png)
+![output](DATA/Output/20251216_125749_aug.png)
 
 ## 🎯 Motivation
 
