@@ -1,7 +1,8 @@
 import cv2
+import os
 import numpy as np
 import matplotlib.pyplot as plt
-
+from datetime import datetime
 
 def add_soft_shadow(img, shadow_strength=0.5):
     h, w = img.shape[:2]
@@ -87,9 +88,11 @@ def add_random_shadow(img):
 
 if __name__ == "__main__":
     # read image
-    roof_image_orig = cv2.imread('original.png')
+    roof_image_orig = cv2.imread('Data/Input/original.png')
     sun_glare = add_sun_glare(roof_image_orig)
     shadow_image = add_soft_shadow(roof_image_orig)
+
+    output_folder = r'DATA/Output'
 
     # Create figure
     plt.figure(figsize=(15, 5))
@@ -109,4 +112,7 @@ if __name__ == "__main__":
     plt.title("shadow_image")
     plt.axis("off")
 
-    plt.show()
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = timestamp+'_aug.png'
+    plt.savefig(os.path.join(output_folder, filename))
+    plt.close()
